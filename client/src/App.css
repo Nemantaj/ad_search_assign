@@ -1,0 +1,32 @@
+.App {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search_div {
+  padding: 10px;
+  display: inline-flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_result {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 5px;
+  padding: 10px;
+}
+
+.card_footer{
+
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
