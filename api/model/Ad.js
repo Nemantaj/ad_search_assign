@@ -8,6 +8,7 @@ const adsSchema = new Schema({
   slogan: { type: String, required: true },
   image: { type: String, reuired: true },
   CTA: { type: String, required: true },
+  companyName: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Ad", adsSchema);

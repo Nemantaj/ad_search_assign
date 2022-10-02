@@ -56,31 +56,31 @@ const App = () => {
       <Divider />
       <div className="search_result">
         {search.length > 0 &&
-          search.map((doc) => {
+          search.map((doc, index) => {
             return (
-              <Card variant="bordered" css={{ minHeight: "250px" }}>
+              <Card variant="bordered" css={{ minHeight: "250px" }} key={index}>
                 <Card.Body css={{ p: 0 }}>
-                  <Card.Image src={doc.details.image} objectFit="cover" />
+                  <Card.Image src={doc.image} objectFit="cover" />
                 </Card.Body>
                 <Card.Footer
                   className="card_footer"
                   css={{ bgBlur: "#ffffff64" }}
                 >
                   <Text h4 css={{ fontFamily: "Neon2" }}>
-                    {doc.name}
+                    {doc.companyName}
                   </Text>
                   <Text size="15px" css={{ fontFamily: "Neon" }}>
-                    {doc.details.slogan}
+                    {doc.slogan}
                   </Text>
                   <Divider css={{ my: "5px" }} />
                   <Text size="15px" css={{ fontFamily: "Neon" }}>
-                    {doc.details.headline}
+                    {doc.headline}
                   </Text>
                   <Text size="12px" css={{ fontFamily: "Neon3" }}>
-                    {doc.details.desc}
+                    {doc.desc}
                   </Text>
                   <Link
-                    href={`https://${doc.url}`}
+                    href={`https://${doc.companyId.url}`}
                     css={{
                       py: "5px",
                       px: "10px",
@@ -88,11 +88,11 @@ const App = () => {
                       br: "20px",
                       my: "5px",
                       fontFamily: "Neon",
-                      fontSize: "13px"
+                      fontSize: "13px",
                     }}
                     color="error"
                   >
-                    {doc.details.CTA}
+                    {doc.CTA}
                   </Link>
                 </Card.Footer>
               </Card>

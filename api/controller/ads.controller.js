@@ -1,4 +1,4 @@
-const Company = require("../model/Company");
+const Ad = require("../model/Ad");
 
 exports.searchByName = (req, res, next) => {
   const searchQuery = req.query.search;
@@ -10,8 +10,15 @@ exports.searchByName = (req, res, next) => {
     throw error;
   }
 
-  Company.find({ name: { $regex: searchQuery, $options: "i" } })
-    .populate("details")
+  Ad.find({
+    $or: [
+      { headline: { $regex: searchQuery, $options: "i" } },
+      { slogan: { $regex: searchQuery, $options: "i" } },
+      { desc: { $regex: searchQuery, $options: "i" } },
+      { companyName: { $regex: searchQuery, $options: "i" } },
+    ],
+  })
+    .populate("details", ["url"])
     .then((result) => {
       res.status(200).json({ result });
     })
